@@ -41,8 +41,6 @@ xkb_symbols "en" {
     // End alphanumeric section
 
     key <CAPS> { [    BackSpace,       Escape,       BackSpace,        BackSpace ] };
-
-    include "level3(ralt_switch)"
 };
 
 partial alphanumeric_keys
