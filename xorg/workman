@@ -2,7 +2,7 @@
 // 09-06-2010 OJ Bucao. http://www.workmanlayout.com
 
 partial alphanumeric_keys
-xkb_symbols "workman" {
+xkb_symbols "en" {
 
     name[Group1]= "English (Workman)";
 
@@ -46,9 +46,9 @@ xkb_symbols "workman" {
 };
 
 partial alphanumeric_keys
-xkb_symbols "workman-intl" {
+xkb_symbols "en-intl" {
 
-    name[Group1]= "English (Workman, international with dead keys)";
+    name[Group1]= "English (Workman, intl. with dead keys)";
 
     include "us(intl)"
 
@@ -88,3 +88,85 @@ xkb_symbols "workman-intl" {
 
     include "level3(ralt_switch)"
 };
+
+partial alphanumeric_keys
+xkb_symbols "de" {
+
+    include "latin(type4)"
+
+    name[Group1]="German (Workman)";
+
+    // Alphanumeric section
+    key <AE02>	{ [         2,   quotedbl,  twosuperior,    oneeighth ]	};
+    key <AE03>	{ [         3,    section, threesuperior,    sterling ]	};
+    key <AE04>	{ [         4,     dollar,   onequarter,     currency ]	};
+
+    key <AE11> {type[Group1]="FOUR_LEVEL_PLUS_LOCK",  symbols[Group1]=
+                  [ssharp, question, backslash, questiondown, 0x1001E9E ]};
+    key <AE12>	{ [dead_acute, dead_grave, dead_cedilla,  dead_ogonek ]	};
+
+    key <AD01>	{ [         q,          Q,           at,  Greek_OMEGA ]	};
+    key <AD02>	{ [         d,          D,      lstroke,      Lstroke ]	};
+    key <AD03>	{ [         r,          R,     EuroSign,     EuroSign ]	};
+    key <AD04>	{ [         w,          W,    paragraph,   registered ]	};
+    key <AD05>	{ [         b,          B,       tslash,       Tslash ]	};
+    key <AD06>	{ [         j,          J,    leftarrow,          yen ]	};
+    key <AD07>	{ [         f,          F,    downarrow,      uparrow ]	};
+    key <AD08>	{ [         u,          U,   rightarrow,     idotless ]	};
+    key <AD09>	{ [         p,          P,       oslash,     Ooblique ]	};
+    key <AD10>	{ [odiaeresis, Odiaeresis,        thorn,        THORN ]	};
+    key <AD11>	{ [udiaeresis, Udiaeresis, dead_diaeresis, dead_abovering ] };
+    key <AD12>	{ [      plus,   asterisk,   asciitilde,  macron ]	};
+
+    key <AC01>	{ [         a,          A,           ae,           AE ]	};
+    key <AC02>  { [         s,          S,                U017F,     U1E9E    ] };
+    key <AC03>	{ [         h,          H,          eth,          ETH ]	};
+    key <AC04>	{ [         t,          T,      dstroke,  ordfeminine ]	};
+    key <AC05>	{ [         g,          G,          eng,          ENG ]	};
+    key <AC06>	{ [         z,          Z,      hstroke,      Hstroke ]	};
+    key <AC07>  { [         n,          N,        dead_belowdot, dead_abovedot   ] };
+    key <AC08>	{ [         e,          E,          kra,    ampersand ]	};
+    key <AC09>	{ [         o,          O,      lstroke,      Lstroke ]	};
+    key <AC10>	{ [         i,          I, dead_doubleacute, dead_belowdot ] };
+    key <AC11>	{ [adiaeresis, Adiaeresis, dead_circumflex, dead_caron ] };
+    key <TLDE>	{ [dead_circumflex, degree,	U2032,    U2033	] };
+
+    key <BKSL>	{ [numbersign, apostrophe, rightsinglequotemark,   dead_breve ]	};
+    key <AB01>	{ [         y,          Y,       guillemotright,    U203A 	] };
+    key <AB02>	{ [         x,          X,        guillemotleft,    U2039 	] };
+    key <AB03>	{ [         m,          M,         cent,    copyright ]	};
+    key <AB04>	{ [         c,          C,   doublelowquotemark, singlelowquotemark ]	};
+    key <AB05>	{ [         v,          V,  leftdoublequotemark, leftsinglequotemark ] };
+    key <AB06>	{ [         k,          K, rightdoublequotemark, rightsinglequotemark ]	};
+    key <AB07>	{ [         l,          L,           mu,    masculine ]	};
+    key <AB08>  { [     comma,  semicolon,       periodcentered,     multiply	] };
+    key <AB09>	{ [    period,      colon,                U2026,     division 	] };
+    key <AB10>	{ [     minus, underscore,               endash,     emdash	] };
+    key <LSGT>	{ [     less,     greater,                  bar, dead_belowmacron ] };
+    // End alphanumeric section
+
+    key <CAPS> { [    BackSpace,       Escape,       BackSpace,        BackSpace ] };
+
+    include "kpdl(comma)"
+
+    include "level3(ralt_switch)"
+};
+
+partial alphanumeric_keys
+xkb_symbols "de-nodeadkeys" {
+
+    // modify the basic German Workman layout to not have any dead keys
+
+    include "workman(de)"
+    name[Group1]="German (Workman, no dead keys)";
+
+    key <TLDE>	{ [asciicircum,     degree,              notsign,     notsign ]	};
+    key <AE12>	{ [      acute,      grave,              cedilla,     cedilla ]	};
+    key <AD11>	{ [ udiaeresis, Udiaeresis,            diaeresis,   diaeresis ]	};
+    key <AD12>	{ [       plus,   asterisk,           asciitilde,      macron ]	};
+    key <AC10>	{ [          i,          I,          doubleacute, doubleacute ]	};
+    key <AC11>	{ [ adiaeresis, Adiaeresis,          asciicircum, asciicircum ]	};
+    key <BKSL>	{ [ numbersign, apostrophe, rightsinglequotemark,       grave ]	};
+};
+
+// vi: ft=xkb
